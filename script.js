@@ -119,7 +119,6 @@ const getPrevDate = (date) => {
     month = 12;
     year--;
   }
-  console.log({ day: day, month: month, year: year });
 
   return { day: day, month: month, year: year };
 };
