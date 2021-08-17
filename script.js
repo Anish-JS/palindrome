@@ -119,36 +119,37 @@ const getPrevDate = (date) => {
     month = 12;
     year--;
   }
+  console.log({ day: day, month: month, year: year });
 
   return { day: day, month: month, year: year };
 };
 
 const getNextPalindrome = (date) => {
-  var ctr = 0;
+  var ctrNext = 0;
   var nextDate = getNextDate(date);
 
   while (1) {
-    ctr++;
+    ctrNext++;
     var isPalindrome = checkPalindromeForAllFormats(nextDate);
     if (isPalindrome) break;
     nextDate = getNextDate(nextDate);
   }
 
-  return [ctr, nextDate];
+  return [ctrNext, nextDate];
 };
 
 const getPrevPalindrome = (date) => {
-  var ctr = 0;
+  var ctrPrev = 0;
   var prevDate = getPrevDate(date);
 
   while (1) {
-    ctr++;
+    ctrPrev++;
     var isPalindrome = checkPalindromeForAllFormats(prevDate);
     if (isPalindrome) break;
-    prevDate = getNextDate(prevDate);
+    prevDate = getPrevDate(prevDate);
   }
 
-  return [ctr, prevDate];
+  return [ctrPrev, prevDate];
 };
 
 // date = {
